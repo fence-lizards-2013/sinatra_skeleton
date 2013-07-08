@@ -17,7 +17,7 @@ require 'logger'
 
 require 'sinatra'
 require "sinatra/reloader" if development?
-
+require 'twitter'
 require 'erb'
 
 # Some helper constants for path-centric logic
@@ -31,3 +31,10 @@ Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
+
+Twitter.configure do |config|
+  config.consumer_key = "zpD4cFLmmTCdPcMLwnrraA"
+  config.consumer_secret = "Jhp37iy9PRHFIo8iA3GJ8sgi5RRsTFWWqTAuKVX7o"
+  config.oauth_token = "77966392-h7p9p8p8N8rFH7gPPDzKr9ONQYeOoCDyzc86HWMyU"
+  config.oauth_token_secret = "p9lp0kukY6RoOxJWKkna1s3qnvIpVPs2PfOv3OljA"
+end
